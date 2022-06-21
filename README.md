@@ -1,6 +1,6 @@
 # doda
 
-load your domain spcific data from files or functions
+load your domain specific data from files or functions
 
 ## why?
 
