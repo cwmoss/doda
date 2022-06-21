@@ -18,7 +18,7 @@ this package depends on `"symfony/yaml"`
 
     $country = $domain->get('country_codes.fr'); // "France"
 
-### yaml example
+the example yaml file
 
     contact_options:
         - via email
@@ -41,7 +41,7 @@ alternatively you can load a previously "compiled" .db file, that contains all i
 
 ### get($path, $default=null)
 
-`$path` is dot.notated.path to your data or an array of segments
+`$path` is dot.notated.path to your data or an array of path segments
 
     # "country_code.fr" is the same as ['country_code', 'fr']
 
@@ -51,11 +51,16 @@ you can php-serialize a previously parsed file, which then can be used via `load
 
 you can compile from command line:
 
-    your-project-root $ php vendor/cwmoss/doda/src/doda.php config/your-domain-data-file-without-file-ending
+    php vendor/cwmoss/doda/src/doda.php config/your-domain-data-file-without-file-ending
 
 ## yaml specific
 
 your yamlfile can contain the top-level-magic-key `import`. here you can list all the data, you wish to load and then merge with the rest of the file.
+
+    import:
+        - imports/categories.yaml
+        - imports/countries.db
+        - ../fruits-folder/fruits.php
 
 ### !file
 
@@ -74,4 +79,12 @@ the function name should be in the `$functions` array during instantiation.
 
 see tests/data folder for more examples
 
+## tests
 
+run php unit
+
+    phpunit
+
+## license
+
+`cwmoss/doda` is released under the MIT public license. See the enclosed `LICENSE` for details.
