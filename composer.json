@@ -1,7 +1,9 @@
 {
     "name": "cwmoss/doda",
     "description": "load domain specific data from files. fast & easy",
-    "version": "0.1",
+    "keywords": ["domain data", "configuration"],
+    "type": "library",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "cwmoss\\": "src/"
