@@ -1,5 +1,6 @@
 {
     "name": "cwmoss/doda",
+    "description": "load domain specific data from files. fast & easy",
     "version": "0.1",
     "autoload": {
         "psr-4": {
@@ -7,6 +8,7 @@
         }
     },
     "require": {
+        "php": ">=7.4",
         "symfony/yaml": "^4.4"
     }
 }
