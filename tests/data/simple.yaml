@@ -1,0 +1,13 @@
+import:
+  - imports/categories.yaml
+  - imports/countries.db
+  - imports/fruits.php
+  - imports/cities.json
+  - imports/colors.ini
+  
+count:
+  one: 1
+  two: 2
+  empty_string: ''
+  empty_null: 
+  'null': null

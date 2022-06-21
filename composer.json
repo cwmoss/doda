@@ -1,0 +1,12 @@
+{
+    "name": "cwmoss/doda",
+    "version": "0.1",
+    "autoload": {
+        "psr-4": {
+            "cwmoss\\": "src/"
+        }
+    },
+    "require": {
+        "symfony/yaml": "^4.4"
+    }
+}

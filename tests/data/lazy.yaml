@@ -1,0 +1,17 @@
+ 
+count:
+  one: 1
+  two: 2
+  empty_string: ''
+  empty_null: 
+  'null': null
+
+categories: !file lazy/categories.yaml
+
+fruits: !file lazy/fruits.php
+
+countries: !file lazy/countries.db
+
+cities: !file lazy/cities.json
+
+colors: !file lazy/colors.ini

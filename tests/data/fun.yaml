@@ -1,0 +1,17 @@
+ 
+count:
+  one: 1
+  two: 2
+  empty_string: ''
+  empty_null: 
+  'null': null
+
+categories: !fun load_smth
+
+fruits: !fun fruits
+
+countries: !fun countries
+
+cities: !fun cities
+
+colors: !fun load_smth
