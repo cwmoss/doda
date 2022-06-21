@@ -55,6 +55,8 @@ you can compile from command line:
 
 ## yaml specific
 
+### the `import` key
+
 your yamlfile can contain the top-level-magic-key `import`. here you can list all the data, you wish to load and then merge with the rest of the file.
 
     import:
