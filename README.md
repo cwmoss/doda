@@ -68,7 +68,7 @@ this yaml tag loads data from a file at the time, you want to access this data (
 
     country_codes: !file countrycodes.json
 
-see tests/data folder for more examples
+see `tests/data` folder for more examples
 
 ### !fun
 
@@ -77,7 +77,7 @@ the function name should be in the `$functions` array during instantiation.
 
     country_codes: !fun load_countrycodes
 
-see tests/data folder for more examples
+see `tests/data` folder for more examples
 
 ## tests
 
