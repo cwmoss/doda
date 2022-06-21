@@ -45,6 +45,8 @@ alternatively you can load a previously "compiled" .db file, that contains all i
 
     # "country_code.fr" is the same as ['country_code', 'fr']
 
+the default value will be returned, if a key in the path does not exist in your data.
+
 ### compile($write_file=false)
 
 you can php-serialize a previously parsed file, which then can be used via `load()` function.
