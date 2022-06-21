@@ -30,6 +30,7 @@ the example yaml file
     contact_options:
         - via email
         - via phone
+    contact_phone: 555 321654
     country_codes: !file countrycodes.json
 
 ## api
