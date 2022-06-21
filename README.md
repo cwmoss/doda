@@ -2,6 +2,13 @@
 
 load your domain spcific data from files or functions
 
+## why?
+
+i need a fast and simple way to store rather static data in my app. that kind of data i don't want to have in a database. maybe the app doesn't need a database anyways. it should be flexible regarding the questions: 
+
+* do i want to load it only if it's needed? (lazy load when needed seldomly) 
+* can i use different formats according to the kind of data?
+
 ## install 
 
 this package depends on `"symfony/yaml"`
