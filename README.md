@@ -1,20 +1,29 @@
 # doda
 
-load your domain data from files or functions
+load your domain spcific data from files or functions
 
-## install & usage
+## install 
 
 this package depends on `"symfony/yaml"`
 
-    $ composer require cwmoss/doda
+    composer require cwmoss/doda
+
+## usage
 
     require_once("vendor/autoload.php");
     use cwmoss\doda;
 
-    $domain = new doda(__DIR__.'/domain-data');
+    $domain = new doda(__DIR__.'/config/domain-data');
     $domain->parse();
 
-    $country = $domain->get('countries.fr'); // "France"
+    $country = $domain->get('country_codes.fr'); // "France"
+
+### yaml example
+
+    contact_options:
+        - via email
+        - via phone
+    country_codes: !file countrycodes.json
 
 ## api
 
@@ -24,17 +33,17 @@ this package depends on `"symfony/yaml"`
 
 ### parse()
 
-    parses the yaml file
+parses the yaml file
 
 ### load()
 
-    alternatively you can load a previously "compiled" .db file, that contains all imported data as a php serialized string
+alternatively you can load a previously "compiled" .db file, that contains all imported data as a php serialized string
 
 ### get($path, $default=null)
 
-    $path is dot-notated path to your data or an array of segments
+`$path` is dot.notated.path to your data or an array of segments
 
-    ex: country_code.fr is the same as ['country_code', 'fr']
+    # "country_code.fr" is the same as ['country_code', 'fr']
 
 ### compile($write_file=false)
 
@@ -42,17 +51,17 @@ you can php-serialize a previously parsed file, which then can be used via `load
 
 you can compile from command line:
 
-    $ your-project-root $ php vendor/cwmoss/doda/src/doda.php config/your-domain-data-file-without-file-ending
+    your-project-root $ php vendor/cwmoss/doda/src/doda.php config/your-domain-data-file-without-file-ending
 
 ## yaml specific
 
-your yamlfile can contain the top-level-magic-key `import`. here you can list all the data, you wish load and then merge with the rest of the file.
+your yamlfile can contain the top-level-magic-key `import`. here you can list all the data, you wish to load and then merge with the rest of the file.
 
 ### !file
 
 this yaml tag loads data from a file at the time, you want to access this data (lazy load).
 
-    ex: country_codes: !file countrycodes.json
+    country_codes: !file countrycodes.json
 
 see tests/data folder for more examples
 
@@ -61,7 +70,7 @@ see tests/data folder for more examples
 this yaml tag loads data from a function call at the time, you want to access this data (lazy load).
 the function name should be in the `$functions` array during instantiation.
 
-    ex: country_codes: !fun load_countrycodes
+    country_codes: !fun load_countrycodes
 
 see tests/data folder for more examples
 
