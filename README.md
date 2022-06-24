@@ -8,10 +8,10 @@ i need a fast and simple way to load rather static read only data in my app. tha
 
 ### features
 
-* support multiple data formats: yaml, json, ini, serialized php
-* support lazy load from files
-* support lazy load from anonymous functions 
-* support cache (serialized php as the fastest format for deserialization)
+* multiple data formats: yaml, json, ini, serialized php, php
+* lazy load from files
+* lazy load from anonymous functions 
+* cache (serialized php as the fastest format for deserialization)
 
 ## install 
 
