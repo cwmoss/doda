@@ -9,7 +9,7 @@ final class DodaLazyFileParseTest extends DodaBase
 {
     public function setup(): void
     {
-        $this->domain = new doda(__DIR__.'/data/lazy');
-        $this->domain->parse();
+        $this->domain = new doda(__DIR__.'/data/lazy.yaml');
+ 
     }
 }

@@ -10,7 +10,7 @@ final class DodaLazyFunLoadTest extends DodaBase
     public function setup(): void
     {
         $functions = include(__DIR__.'/data/lazy/functions.php');
-        $this->domain = new doda(__DIR__.'/data/fun', $functions);
-        $this->domain->load();
+        $this->domain = new doda(__DIR__.'/data/fun.cache', $functions);
+     
     }
 }

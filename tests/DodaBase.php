@@ -5,10 +5,6 @@ use cwmoss\doda;
 
 class DodaBase extends TestCase
 {
-    public function testInit()
-    {
-        $this->assertInstanceOf('\cwmoss\doda', new doda(""));
-    }
 
     public function testSimple(): void
     {

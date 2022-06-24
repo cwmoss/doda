@@ -11,6 +11,7 @@ class doda
     {
         $this->entry_point = $entry_point;
         $this->functions = $functions;
+        $this->data = $this->load_file($entry_point);
     }
 
     public function get($path, $default=null)
@@ -75,24 +76,13 @@ class doda
         $current = $data;
     }
 
-    public function load()
+    public function write_cache()
     {
-        $this->data = $this->load_file("{$this->entry_point}.db");
-    }
-
-    public function parse()
-    {
-        $this->data = $this->load_file("{$this->entry_point}.yaml");
-    }
-
-    public function compile($write=false)
-    {
-        $parsed = $this->load_file("{$this->entry_point}.yaml");
-        $compiled = serialize($parsed);
-        if ($write) {
-            file_put_contents("{$this->entry_point}.db", $compiled);
-        }
-        return $compiled;
+        #print_r($this);
+        $cache = substr_replace($this->entry_point , 'cache', 
+            strrpos($this->entry_point , '.') +1);
+   
+        file_put_contents($cache, serialize($this->data));
     }
 
     public function load_file($file, $basedir=".")
@@ -136,6 +126,11 @@ class doda
         return array_merge($parsed_imports, $parsed);
     }
 
+    public function load_cache($content, $base="")
+    {
+        return unserialize($content);
+    }
+
     public function load_db($content, $base="")
     {
         return unserialize($content);
@@ -160,9 +155,9 @@ class doda
     }
 }
 
-// most simple compile
-// your-project-root $ php vendor/cwmoss/doda/src/doda.php config/your-domain-data-file
+// most simple cache write
+// your-project-root $ php vendor/cwmoss/doda/src/doda.php config/your-domain-data-file.yaml
 if (php_sapi_name() == 'cli' && isset($argv[1]) && realpath($argv[0]) == realpath(__FILE__)) {
     include_once("vendor/autoload.php");
-    (new doda($argv[1]))->compile(true);
+    (new doda(realpath($argv[1])))->write_cache();
 }
