@@ -1,10 +1,10 @@
 # doda
 
-load your domain specific data from files or functions
+load your domain specific data from files or functions, lazy or not
 
 ## why?
 
-i need a fast and simple way to store rather static data in my app. that kind of data i don't want to have in a database. maybe the app doesn't need a database anyways. 
+i need a fast and simple way to load rather static read only data in my app. that kind of data i don't want to have in a database. maybe the app doesn't need a database anyways. 
 
 ### features
 
