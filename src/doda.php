@@ -1,4 +1,5 @@
 <?php
+
 namespace cwmoss;
 
 class doda
@@ -24,7 +25,7 @@ class doda
 
         foreach ($path as $part) {
             $current_path[] = $part;
-            if (is_array($current) && is_array($current[$part]) && array_key_exists('__tag__', $current[$part])) {
+            if (is_array($current) && array_key_exists($part, $current) && is_array($current[$part]) && array_key_exists('__tag__', $current[$part])) {
                 $newdata = $this->resolve($current[$part]['__tag__'], $current_path);
                 $this->update_data($current_path, $newdata);
                 $current = $newdata;
@@ -64,8 +65,8 @@ class doda
         if (!is_array($path)) {
             $path = explode('.', $path);
         }
-        
-        
+
+
         $current = &$this->data;
         foreach ($path as $part) {
             if (!isset($current[$part])) {
@@ -79,9 +80,12 @@ class doda
     public function write_cache()
     {
         #print_r($this);
-        $cache = substr_replace($this->entry_point , 'cache', 
-            strrpos($this->entry_point , '.') +1);
-   
+        $cache = substr_replace(
+            $this->entry_point,
+            'cache',
+            strrpos($this->entry_point, '.') +1
+        );
+
         file_put_contents($cache, serialize($this->data));
     }
 
@@ -107,7 +111,7 @@ class doda
         $parsed = \Symfony\Component\Yaml\Yaml::parse($content, \Symfony\Component\Yaml\Yaml::PARSE_CUSTOM_TAGS);
         $imports = [];
         if (array_key_exists('import', $parsed)) {
-            $imports = is_array($parsed['import'])?$parsed['import']:[$parsed['import']];
+            $imports = is_array($parsed['import']) ? $parsed['import'] : [$parsed['import']];
             unset($parsed['import']);
         }
 
